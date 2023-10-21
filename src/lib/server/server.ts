@@ -16,7 +16,6 @@ const Counts = defineCounts(sequelize, DataTypes, Categories, Sources)
 Categories.belongsToMany(Sources, { through: Counts })
 Sources.belongsToMany(Categories, { through: Counts })
 
-await sequelize.drop()
 await sequelize.sync({ force: true })
 console.log("All models were synchronized successfully.")
 

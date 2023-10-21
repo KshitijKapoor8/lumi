@@ -2,7 +2,11 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        "tiles": "repeat(auto-fit, 375px)"
+      },
+    },
   },
   plugins: [],
 }
