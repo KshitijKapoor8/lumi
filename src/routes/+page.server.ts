@@ -5,13 +5,13 @@ export async function load() {
   const stats = {}
 
   // get number of stories
-  stats.sources = (await sequelize.query('select count(*) as nb from story_list'))[0][0].nb
+  stats.sources = (await sequelize.query('select count(*) as nb from sources'))[0][0].nb
 
-  // list of stories
-  const stories = await StoryList.findAll()
+  // list of sources
+  const sources = await Sources.findAll()
 
   // purify data
-  const clean = stories.map((s) => JSON.parse(JSON.stringify(s)))
+  const clean = sources.map((s) => JSON.parse(JSON.stringify(s)))
 
-  return { stats,  stories: clean }
+  return { stats,  sources: clean }
 }
