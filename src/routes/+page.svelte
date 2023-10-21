@@ -1,8 +1,14 @@
-<script>
-	import Layout from "./+layout.svelte";
+<script lang="ts">
+  import { goto } from "$app/navigation";
+  let search:string = "";
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    goto("search="+search)
+  }
 </script>
 
-<div class="flex flex-col h-screen w-screen justify-center items-center bg-wave bg-no-repeat bg-cover bg-center">
+<div class="flex flex-col bg-[#16262E] h-screen w-screen justify-center items-center ">
   <h1 class="text-4xl font-bold font-mono text-slate-400">
     Lumi
   </h1>

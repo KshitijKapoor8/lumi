@@ -5,7 +5,10 @@ export default {
     extend: {
       backgroundImage: {
         'wave': "url('/waveBackground.svg')",
-      }
+      },
+      gridTemplateColumns: {
+        "tiles": "repeat(auto-fit, 375px)"
+      },
     },
   },
   plugins: [],
