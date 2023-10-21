@@ -1,3 +1,12 @@
-<h1>Home page</h1>
+<div class="flex h-screen w-screen justify-center items-center">
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</div>
 
-<p><a href="http://localhost:5173/search">test</a></p>
+
+<style lang="postcss">
+  :global(html) {
+    background-color: theme(colors.gray.100);
+  }
+</style>
