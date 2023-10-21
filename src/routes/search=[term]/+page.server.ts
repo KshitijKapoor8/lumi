@@ -7,7 +7,7 @@ export async function load() {
   }
 
   // get number of stories
-  stats.sources = (await sequelize.query('select * from sources'))
+  stats.sources = (await sequelize.query('select * from sources'))[0]
 
   // list of sources
   const sources = await Sources.findAll()

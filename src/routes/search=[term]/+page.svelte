@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PageData } from './$types';
+    import type { PageData } from '../search/$types';
     
     export let data: PageData;
 </script>
