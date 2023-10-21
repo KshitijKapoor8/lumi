@@ -1,4 +1,4 @@
-export const defineCategory = (sequelize:any, DataTypes:any) => {
+export const defineCategories = (sequelize:any, DataTypes:any) => {
   return sequelize.define('Category', {
     id: {
       type: DataTypes.INTEGER,
