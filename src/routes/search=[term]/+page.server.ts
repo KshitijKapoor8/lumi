@@ -11,10 +11,9 @@ export async function load({ fetch, params }) {
     yelpData: Array<JSON>(),
   };
 
-  // await loadTiktoks(fetch, term).then((tiktokData) => {
-  //   console.log(tiktokData);
-  //   sourceData.tiktokData = tiktokData.data;
-  // });
+  await loadTiktoks(fetch, term).then((tiktokData) => {
+    sourceData.tiktokData = tiktokData.data;
+  });
 
   await loadReddit(fetch, term).then((redditData) => {
     for (let i = 0; i < redditData.data.children.length; i++) {

@@ -20,4 +20,39 @@ Sources.belongsToMany(Categories, { through: Counts })
 await sequelize.sync({ force: false })
 console.log("All models were synchronized successfully.")
 
+// const allContents = fs.readFileSync('tac.txt', 'utf-8');
+
+// function createCounts() {
+//   if (!allContents || typeof allContents !== 'string') {
+//     console.error('allContents is not defined or not a string');
+//     return;
+//   }
+
+//   allContents.split(/\r?\n/).forEach((line) => {
+//     if (!line) {
+//       console.warn('Skipping empty line');
+//       return;
+//     }
+
+//     for (let i = 1; i <= 8; i++) {
+//       Counts.create({CategoryId: line.trim(), SourceId: i, Counts: 0}, (err : any) => {
+//         if (err) {
+//           console.error('Error creating Counts:', err);
+//         }
+//       });
+//     }
+
+    // for (let i = 1; i <= 7; i++) {
+    //   Counts.create({CategoryId: line.trim(), SourceId: i, Counts: 0}, (err : any) => {
+    //     if (err) {
+    //       console.error('Error creating Counts:', err);
+    //     }
+    //   });
+    // }
+//   });
+// }
+
+// createCounts();
+
+
 export { sequelize, Categories, Sources, Counts }
