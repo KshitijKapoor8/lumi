@@ -7,7 +7,7 @@ export const GET: RequestHandler = async ({ url }) => {
     const searchQuery = url.searchParams.get('srsearch');
     console.log(searchQuery)
 
-    const link = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="${searchQuery}&format=json`;
+    const link = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${searchQuery}&format=json`;
     console.log(link)
     const res : Response = await fetch(link, {
     })
