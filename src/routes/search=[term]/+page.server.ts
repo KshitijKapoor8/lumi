@@ -1,6 +1,6 @@
 import { sequelize, Sources } from "$lib/server/server";
 
-export async function load({ fetch, params }) {
+export async function load({ fetch, params }: any) {
   const { term } = params;
   let sourceData = {
     tiktokData: Array<string>(),

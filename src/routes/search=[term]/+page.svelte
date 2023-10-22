@@ -33,7 +33,7 @@
         </h1>
     </div>
     <div class=" [&>*]:bg-[#1d313b] [&>*]:rounded-2xl  h-full w-[97.5%] grid grid-cols-tiles gap-3 p-3 auto-rows-[400px] auto-cols-[400px] grid-flow-dense self-center flex-row">
-        <!-- Rendering Tiktok -->
+        <!-- Rendering Tiktok
         <div class="after:content-[''] after:block after:pb-[100%] row-span-2 bg-white">
             <div class="flex flex-col items-center justify-center w-full h-full p-4">
                 <embed src="https://www.tiktok.com/embed/{tiktokData[count]}" class="w-[89%] h-[97%]"/>
@@ -42,7 +42,7 @@
                     <button on:click={decrementCount} class="px-3 mt-3 text-gray-600 bg-gray-700 rounded-full" >Previous</button>
                 </div>
             </div>
-        </div> 
+        </div>  -->
         <!-- Rendering Reddit -->
         <div class="after:content-[''] after:block after:pb-[100%] bg-white flex-col p-4">
             <div class="flex flex-row ">
