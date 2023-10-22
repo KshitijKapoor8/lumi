@@ -6,4 +6,6 @@ const ai = new OpenAI({
     apiKey: OPENAI_KEY,
 })
 
+
+
 export default ai;
