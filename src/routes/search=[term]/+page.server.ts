@@ -5,7 +5,7 @@ export async function load({ fetch, params }) {
   let sourceData = {
     tiktokData:Array<string>(),
     redditData:Array<JSON>(),
-    tmdbData:Array<string>(),
+    wikiData:Array<JSON>(),
   };
 
   // await loadTiktoks(fetch, term).then((tiktokData) => {
@@ -18,8 +18,15 @@ export async function load({ fetch, params }) {
       sourceData.redditData.push(redditData.data.children[i].data);
     }
   });
-  console.log(sourceData);
-  return sourceData
+
+await loadWiki(fetch,term).then((wikiData) => {
+  for(let i = 0; i < wikiData.query.search.length; i++)
+  {
+    sourceData.wikiData.push(wikiData.query.search[i]);
+  }
+});
+  
+  return sourceData;
 }
 
 async function loadTiktoks(fetch:any, term:string) {
@@ -32,4 +39,11 @@ async function loadReddit(fetch:any, term:string) {
   const res = await fetch(`/api/reddit?q=${term}`);
   let redditData = await res.json();
   return redditData;
+}
+
+async function loadWiki(fetch: any, term: string)
+{
+  const res = await fetch(`/api/wikipedia?srsearch=${term}`);
+  let wikiData = await res.json();
+  return wikiData;
 }
