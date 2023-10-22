@@ -2,7 +2,7 @@ export const defineCounts = (sequelize:any, DataTypes:any, Categories:any, Sourc
   return sequelize.define('Counts', {
     count: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0,
     },
   }, {

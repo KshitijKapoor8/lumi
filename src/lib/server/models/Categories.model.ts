@@ -8,7 +8,6 @@ export const defineCategories = (sequelize:any, DataTypes:any) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
   }, {
     sequelize,
