@@ -3,9 +3,12 @@ import { sequelize, Sources } from "$lib/server/server";
 export async function load({ fetch, params }) {
   const { term } = params;
   let sourceData = {
-    tiktokData:Array<string>(),
-    redditData:Array<JSON>(),
-    wikiData:Array<JSON>(),
+    tiktokData: Array<string>(),
+    redditData: Array<JSON>(),
+    wikiData: Array<JSON>(),
+    tmdbData: Array<JSON>(),
+    urbData: Array<JSON>(),
+    yelpData: Array<JSON>(),
   };
 
   // await loadTiktoks(fetch, term).then((tiktokData) => {
@@ -25,7 +28,21 @@ await loadWiki(fetch,term).then((wikiData) => {
     sourceData.wikiData.push(wikiData.query.search[i]);
   }
 });
+
+await loadTMDB(fetch,term).then((tmdbData) => {
+  for(let i = 0; i < tmdbData.results.length; i++)
+  {
+    sourceData.tmdbData.push(tmdbData.results[i]);
+  }
+});
   
+  
+await loadUrb(fetch,term).then((urbData) => {
+  for(let i = 0; i < urbData.list.length; i++)
+  {
+    sourceData.urbData.push(urbData.list[i]);
+  }
+}); 
   return sourceData;
 }
 
@@ -46,4 +63,18 @@ async function loadWiki(fetch: any, term: string)
   const res = await fetch(`/api/wikipedia?srsearch=${term}`);
   let wikiData = await res.json();
   return wikiData;
+}
+
+async function loadTMDB(fetch: any, term: string)
+{
+  const res = await fetch(`/api/tmdb?query=${term}`);
+  let tmdbData = await res.json();
+  return tmdbData;
+}
+
+async function loadUrb(fetch: any, term: string)
+{
+  const res = await fetch(`/api/urbandictionary?term=${term}`);
+  let urbData = await res.json();
+  return urbData;
 }
