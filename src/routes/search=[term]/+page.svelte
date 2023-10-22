@@ -2,7 +2,12 @@
 	import { writable } from 'svelte/store';
 
     export let data
-    let { tiktokData, redditData, wikiData } = data
+    let { tiktokData, redditData, wikiData, tmdbData, urbData} = data
+    // console.log(tiktokData)
+    // console.log(redditData[2])
+    // console.log("here?" + JSON.stringify(wikiData[1]))
+    // console.log("here?" + JSON.stringify(tmdbData[1]))
+    
     let count = 0
 
     const incrementCount = () => {
@@ -17,7 +22,7 @@
     }
     // console.log(tiktokData)
     // console.log(redditData[2])
-    console.log("here?" + JSON.stringify(wikiData[1]))
+    console.log(wikiData)
 </script>
 
 <div class="flex flex-col items-center w-full h-full select-none">
@@ -68,7 +73,33 @@
                 </div>
             </div>
         </div>
+
+    {#each tmdbData as tmdb}
+    <div class="after:content-[''] after:block after:pb-[100%] bg-white flex-col">
+        <div class="flex flex-col items-center justify-center w-full h-full">
+            <div class="px-4">
+                <div class="text-2xl font-semibold">{tmdb.original_title}</div>
+                <div class="text-xl font-semibold">{tmdb.overview.slice(0,200)}...</div>
+            </div>   
+        </div>
+    </div>
     {/each}
 
-
+    {#each urbData as urb}
+    <div class="after:content-[''] after:block after:pb-[100%] bg-white flex-col">
+        <div class="flex flex-col items-center justify-center w-full h-full">
+            <div class="px-4">
+                <div class="text-2xl font-semibold">{urb.word}</div>
+                <div class="text-xl font-semibold">{urb.definition}</div>
+            </div>   
+        </div>
+    </div>
+    {/each}
+        
+    </div> 
 </div>
+<style lang="postcss">
+    :global(html) {
+      background-color: #16262E;
+    }
+</style>
