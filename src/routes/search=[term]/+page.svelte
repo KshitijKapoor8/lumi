@@ -20,9 +20,9 @@
     console.log(wikiData)
 </script>
 
-<div class="w-full h-full bg-[#16262E] bg-cover flex items-center flex-col">
+<div class="flex flex-col items-center w-full h-full select-none">
     <div class="flex-[0] static w-full bg-[#1d313b] flex flex-row">
-        <img class="h-20" src="/tempLumiLogo2.png" alt="lumi logo">
+        <img class="h-20 ml-5" src="/tempLumiLogo2.png" alt="lumi logo">
         <h1 class="font-mono font-bold select-none text-7xl text-slate-400">
             Lumi
         </h1>
@@ -62,7 +62,8 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" class="w-10 h-10" alt="wikipedia logo">
                     <div class="w-4/5 px-4">
                         <div class="text-2xl font-semibold text-gray-300">{wikiData[0].title}</div>
-                        <div class="text-2xl font-semibold text-gray-600 break-words">{wikiData[0].snippet}</div>
+                        
+                        <div class="text-xl font-semibold text-gray-600 break-words">{@html wikiData[0].snippet}...</div>
                     </div>  
                 </div>
             </div>
@@ -71,3 +72,9 @@
         
     </div> 
 </div>
+
+<style lang="postcss">
+    :global(html) {
+      background-color: #16262E;
+    }
+</style>
