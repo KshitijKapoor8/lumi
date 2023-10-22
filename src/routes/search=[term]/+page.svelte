@@ -21,8 +21,9 @@
 </script>
 
 <div class="w-full h-full bg-[#16262E] bg-cover flex items-center flex-col">
-    <div class="flex-[0] static w-full bg-[#1d313b]">
-        <h1 class="font-mono font-bold text-7xl text-slate-400">
+    <div class="flex-[0] static w-full bg-[#1d313b] flex flex-row">
+        <img class="h-20" src="/tempLumiLogo2.png" alt="lumi logo">
+        <h1 class="font-mono font-bold select-none text-7xl text-slate-400">
             Lumi
         </h1>
     </div>
@@ -42,7 +43,7 @@
             <div class="flex flex-row ">
                 <img src="https://www.redditstatic.com/desktop2x/img/favicon/android-icon-192x192.png" class="w-10 h-10" alt="reddit logo">
                 <div class="flex flex-col items-center justify-center w-full h-full select-none">
-                    <div class="px-4">
+                    <div class="self-start px-4">
                         <div class="text-2xl font-semibold text-gray-300">{redditData[0].title}</div>
                         <div class="text-xl font-semibold text-slate-600">r/{redditData[0].subreddit}</div>
                     </div>
