@@ -2,10 +2,6 @@
   import { goto } from "$app/navigation";
   let search:string = "";
 
-  function handleSubmit(event: Event) {
-    event.preventDefault();
-    goto("search="+search)
-  }
 </script>
 
 <div class="flex flex-col h-screen w-screen justify-center items-center bg-wave bg-no-repeat bg-cover bg-center">
@@ -29,7 +25,6 @@
 </div>
 
 <style lang="postcss">
-
   .custom-shadow:focus {
     box-shadow: 0 0 10px #FFFF8F, 0 0 15px #FFFF8F, 0 0 20px #FFFF8F, 0 0 25px #FFFF8F;
   }
