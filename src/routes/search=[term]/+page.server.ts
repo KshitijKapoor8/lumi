@@ -3,46 +3,7 @@ import { writable } from 'svelte/store';
 import { getContext } from 'svelte';
 import type { PageServerLoad } from "../$types";
 
-class Item {
-  name: string;
-  xSize: number;
-  ySize: number;
-  tiled: boolean;
-
-  constructor(name: string, xSize: number, ySize: number) {
-      this.name = name;
-      this.xSize = xSize;
-      this.ySize = ySize;
-      this.tiled = false;
-  }
-}
-
-function tileSmall(smalls: any[], grid: Item[][], i: number, j: number): boolean {
-  let temp = new Item("nn", 1, 1);
-  if (smalls[0] == 1) {
-    temp = new Item("wiki", 1, 1);
-  } else if (smalls[0] == 3) {
-    temp = new Item("tmdb", 1, 1);
-  } else if (smalls[0] == 4) {
-    temp = new Item("reddit", 1, 1);
-  } else if (smalls[0] == 5) {
-    temp = new Item("yelp", 1, 1);
-  } else if (smalls[0] == 7) {
-    temp = new Item("urb", 1, 1);
-  }
-  if (!grid[i][j].tiled) {
-      smalls.shift();
-      grid[i][j] = temp;
-      grid[i][j].tiled = true;
-      return true;
-  } else {
-      return false;
-  }
-}
-
 export async function load({ fetch, params }: any) {
-  
-  const BIG_MAX = 2;
   const { term } = params;
 
   // const data = JSON.stringify({ prompt: term })
