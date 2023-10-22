@@ -4,17 +4,19 @@ export async function load({ fetch, params }) {
   const { term } = params;
   let sourceData = {
     tiktokData:Array<string>(),
-    redditData:Array<string>(),
+    redditData:Array<JSON>(),
     tmdbData:Array<string>(),
   };
 
-  await loadTiktoks(fetch, term).then((tiktokData) => {
-    console.log(tiktokData);
-    sourceData.tiktokData = tiktokData.data;
-  });
+  // await loadTiktoks(fetch, term).then((tiktokData) => {
+  //   console.log(tiktokData);
+  //   sourceData.tiktokData = tiktokData.data;
+  // });
 
   await loadReddit(fetch, term).then((redditData) => {
-    sourceData.redditData = redditData;
+    for (let i = 0; i < redditData.data.children.length; i++) {
+      sourceData.redditData.push(redditData.data.children[i].data);
+    }
   });
   console.log(sourceData);
   return sourceData

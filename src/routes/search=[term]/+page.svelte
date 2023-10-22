@@ -1,15 +1,35 @@
 <script lang="ts">
     import { page } from '$app/stores'
+	import { parse } from 'svelte/compiler';
 
     export let data
     let { tiktokData, redditData } = data
     console.log(tiktokData)
+    console.log(redditData[2])
 </script>
 
-<div class="[&>*:nth-child(4n+1)]:bg-red-500 [&>*:nth-child(4n+1)]:col-span-2 [&>*:nth-child(4n)]:bg-blue-500 [&>*:nth-child(4n)]:row-span-2 bg-[#16262E] h-full w-full grid grid-cols-tiles gap-3 p-3 auto-rows-[375px] auto-cols-[375px] grid-flow-dense">
+<div class="[&>*]:bg-[#2e4756] [&>*]:rounded-2xl bg-[#16262E] h-full w-full grid grid-cols-tiles gap-3 p-3 auto-rows-[425px] auto-cols-[400px] grid-flow-dense">
     {#each tiktokData as tiktok}
-        <div class="after:content-[''] after:block after:pb-[100%] bg-white">
+        <div class="after:content-[''] after:block after:pb-[100%] row-span-2 bg-white">
             <embed  src="https://www.tiktok.com/embed/{tiktok}" class="w-full h-full"/>
+        </div>
+    {/each}
+    {#each redditData as reddit}
+        <div class="after:content-[''] after:block after:pb-[100%] bg-white flex-col">
+            <div class="flex flex-col items-center justify-center w-full h-full">
+                <div class="px-4">
+                    <div class="text-2xl font-semibold">{reddit.title}</div>
+                    <div class="text-xl font-semibold">r/{reddit.subreddit}</div>
+                </div>
+                {#if reddit.url} 
+                <div class="flex items-center justify-center w-4/5 bg-[#1d313b] rounded-md">
+                    <img alt="" src={reddit.url} class="self-center object-contain"/>
+                </div>
+                {/if}
+                
+                
+            </div>
+
         </div>
     {/each}
 </div>

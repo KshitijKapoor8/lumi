@@ -1,20 +1,15 @@
 import { error } from '@sveltejs/kit'
 import type { RequestHandler } from './$types';
-import { TMDB_USERNAME } from '$env/static/private';
 
 
 export const GET: RequestHandler = async ({ url }) => {
 
-    const searchQuery = url.searchParams.get('query');
+    const searchQuery = url.searchParams.get('srsearch');
     console.log(searchQuery)
 
-    const link = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}`;
+    const link = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="${searchQuery}&format=json`;
     console.log(link)
     const res : Response = await fetch(link, {
-        headers: {
-            Authorization: 'Bearer ' + TMDB_USERNAME,
-            accept: 'application/json'
-        }
     })
 
     if (!res.ok) {
