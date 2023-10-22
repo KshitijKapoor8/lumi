@@ -1,4 +1,3 @@
-
 <script lang = "ts">
     import { loading } from "$lib/loading";
     import { Jumper } from 'svelte-loading-spinners';

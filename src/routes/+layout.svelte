@@ -7,5 +7,4 @@
   $: $loading = !!$navigating
 </script>
 
-{$loading}
 <slot />
