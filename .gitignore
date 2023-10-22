@@ -12,3 +12,5 @@ vite.config.ts.timestamp-*
 ./package.json
 ./package-lock.json
 **/.env
+**/package.json
+**/package-lock.json
