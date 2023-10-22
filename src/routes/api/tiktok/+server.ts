@@ -8,8 +8,6 @@ export const GET: RequestHandler = async ({ url }) => {
    
     const link = `http://${TIKTOK_HOST}/api/hashtag/${hashtag}`
 
-    console.log(link)
-
     const res : Response = await fetch(link, {
         method: 'POST',
         headers: {

@@ -9,7 +9,6 @@ export const GET: RequestHandler = async ({ url }) => {
 
     const link = `https://oauth.reddit.com/search.json?q=${searchQuery}`;
 
-
     const res : Response = await fetch(link, {
         headers: {
             'Authorization': `bearer ${REDDIT_ACCESS}`,
