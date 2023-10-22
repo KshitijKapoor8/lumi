@@ -6,7 +6,7 @@ export const GET: RequestHandler = async ({ url }) => {
 
     const hashtag = url.searchParams.get('q');
    
-    const link = `http://${TIKTOK_HOST}/api/hashtag/${hashtag}`
+    const link = `http://localhost:8080/api/hashtag/${hashtag}`
 
     const res : Response = await fetch(link, {
         method: 'POST',

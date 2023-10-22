@@ -1,9 +1,9 @@
-// import {Categories} from '$lib/server/server'
-// import type { Actions } from "./$types";
+import {Categories} from '$lib/server/server'
+import type { Actions } from "./$types";
 
-// export async function load({ params }: any) {
-//     const { term } = params;
+export async function load({ params }: any) {
+    const { term } = params;
     
-//   }
+  }
 
 

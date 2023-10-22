@@ -1,18 +1,17 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { setContext, onMount } from 'svelte'
+  import { writable } from 'svelte/store'
+  import type { LayoutData } from '$types'
+
   let search:string = "";
+  export let data
+
+
   async function handleSubmit(event: Event) {
     event.preventDefault();
-    const data = JSON.stringify({ prompt: search })
-    const res = await fetch(`http://localhost:5173/api/getCategories/`, {
-      method: "POST",
-      body: data
-    });
-    
-    const json = await res.json();
-    console.log(json);
-
-    goto("/search=" + search)
+        
+    goto(`/search=${search}`)
   }
 </script>
 
@@ -33,7 +32,8 @@
         <button type="enter"> </button>
     </form>
   </div>
-  <img class="h-[25%] object-cover absolute bottom-5 left-5" src="/tempLumiLogo2.png" alt="temporary logo">
+  <img class="h-[50%] object-cover absolute bottom-0 left-0" src="fireflies.png" alt="temporary logo">
+
 </div>
 
 <style lang="postcss">

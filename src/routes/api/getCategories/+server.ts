@@ -13,12 +13,10 @@ export const POST: RequestHandler = async ({ request }) => {
 
     const prompt = await request.json();
 
-
     const response = await ai.chat.completions.create({
         model: "gpt-4",
         messages: [{"role": "user", "content": `I am going to give you a list of 1300 categories. Based on these categories, I need you to pick out five that best fit the prompt that follows. Here are the categories, they are separated by a semi-colon: ${s}. Now, here is the prompt: ${prompt.prompt}`}]
     });
 
-    console.log(response.choices[0].message.content);
     return new Response(JSON.stringify(response.choices[0].message.content))
 }
