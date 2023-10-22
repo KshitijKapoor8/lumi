@@ -27,8 +27,8 @@
 
 <div class="flex flex-col items-center w-full h-full select-none">
     <div class="flex-[0] static w-full bg-[#1d313b] flex flex-row">
-        <img class="h-20 ml-5" src="/tempLumiLogo2.png" alt="lumi logo">
-        <h1 class="font-mono font-bold select-none text-7xl text-slate-400">
+        <img class="h-30 w-20 ml-5 pt-5" src="/official_lumi_logo (1).png" alt="lumi logo">
+        <h1 class="font-mono font-bold select-none text-5xl pt-14 text-slate-400">
             Lumi
         </h1>
     </div>
@@ -68,7 +68,7 @@
                     <div class="w-4/5 px-4">
                         <div class="text-2xl font-semibold text-gray-300">{wikiData[0].title}</div>
                         
-                        <div class="text-xl font-semibold text-gray-600 break-words">{@html wikiData[0].snippet}...</div>
+                        <div class="text-xl font-semibold text-gray-300 break-words">{@html wikiData[0].snippet}...</div>
                     </div>  
                 </div>
             </div>
@@ -76,21 +76,23 @@
 
     {#each tmdbData as tmdb}
     <div class="after:content-[''] after:block after:pb-[100%] bg-white flex-col">
-        <div class="flex flex-col items-center justify-center w-full h-full">
-            <div class="px-4">
-                <div class="text-2xl font-semibold">{tmdb.original_title}</div>
-                <div class="text-xl font-semibold">{tmdb.overview.slice(0,200)}...</div>
+        <div class="flex flex-col items-left pt-[5%] w-full h-full">
+            <div class="px-4 flex flex-row">
+                <img src = "https://play-lh.googleusercontent.com/1VxftIinnfbrJSX7rS_NUNzcMYunfIw4b1rxL9QEZYCzd2sRYJ5Mmpq2oiKmn-PZZ-4=w240-h480-rw" class="w-8 h-8" alt="moviedb logo">
+                <div class="text-2xl font-semibold text-gray-300 pl-[3%]">{tmdb.original_title}</div>
             </div>   
+            <div class="text-xl font-semibold text-gray-300 pl-[15%]">{tmdb.overview.slice(0,200)}...</div>
         </div>
     </div>
     {/each}
 
     {#each urbData as urb}
     <div class="after:content-[''] after:block after:pb-[100%] bg-white flex-col">
-        <div class="flex flex-col items-center justify-center w-full h-full">
-            <div class="px-4">
-                <div class="text-2xl font-semibold">{urb.word}</div>
-                <div class="text-xl font-semibold">{urb.definition}</div>
+        <div class="flex flex-col items-left pt-[5%] w-full h-full">
+            <div class="px-4 flex flex-row">
+                <img src = "https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/u8zidc2jnlhz3n1dcbrr" class="w-8 h-8" alt="urb logo">
+                <div class="text-2xl font-semibold text-gray-300 pl-[3%]">{urb.word}</div>
+                <div class="text-xl font-semibold text-gray-300 pl-[15%]">{urb.definition}</div>
             </div>   
         </div>
     </div>

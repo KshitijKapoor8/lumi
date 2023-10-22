@@ -22,14 +22,14 @@ export async function load({ fetch, params }) {
   });
 
 await loadWiki(fetch,term).then((wikiData) => {
-  for(let i = 0; i < wikiData.query.search.length; i++)
+  for(let i = 0; i < 2; i++)
   {
     sourceData.wikiData.push(wikiData.query.search[i]);
   }
 });
 
 await loadTMDB(fetch,term).then((tmdbData) => {
-  for(let i = 0; i < tmdbData.results.length; i++)
+  for(let i = 0; i < 2; i++)
   {
     sourceData.tmdbData.push(tmdbData.results[i]);
   }
@@ -37,7 +37,7 @@ await loadTMDB(fetch,term).then((tmdbData) => {
   
   
 await loadUrb(fetch,term).then((urbData) => {
-  for(let i = 0; i < urbData.list.length; i++)
+  for(let i = 0; i < 2; i++)
   {
     sourceData.urbData.push(urbData.list[i]);
   }
